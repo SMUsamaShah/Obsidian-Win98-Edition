@@ -226,6 +226,9 @@ body {
   width: 16px;
   height: 14px;
 }
+.view-actions {
+  padding: 4px 4px;
+}
 
 .view-content {
   height: 100%;
@@ -293,17 +296,18 @@ body {
   border-radius: 0px;
   display: flex;
   cursor: pointer;
-  color: var(--text-muted);
   font-size: 11px;
   line-height: 1em;
-  padding: 0px 10px 0 26px;
+  padding: 0px 10px 0 0px;
   white-space: nowrap;
   width: max-content;
   min-width: 100%;
   margin-top: 3px;
 }
 
-
+.nav-folder-collapse-indicator {
+  color: #000000;
+}
 
 .nav-file, .nav-folder {
   font-size: 11px;
@@ -318,6 +322,40 @@ body {
   border: 0px solid transparent;
   display: inline-block;
   padding: 0px 0px;
+  color: #000000;
+  position: relative;
+}
+
+.nav-folder-children>.nav-file>.nav-file-title>.nav-file-title-content:before {
+  content: "";
+  display: block;
+  position: relative;
+  left: -16px;
+  top: 6px;
+  width: 12px;
+  border-bottom: 1px dotted grey;
+}
+
+.nav-folder-children {
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px dotted grey;
+}
+
+/* Cover the bottom of the left dotted border */
+.nav-folder-children>.nav-file:last-child>.nav-file-title>.nav-file-title-content::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -20px;
+  top: 7px;
+  bottom: 0px;
+  width: 8px;
+  background: #fff;
+}
+
+.nav-folder-collapse-indicator.collapse-icon {
+  /* display: none; */
 }
 
 .nav-action-button {
@@ -327,7 +365,7 @@ body {
   border-radius: 0;
   min-height: 23px;
   /* padding: 0 12px; */
-
+  margin: 0;
   box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4;
 }
 
@@ -504,4 +542,23 @@ input[type=text] {
 }
 .menu-item-icon {
   color: #000;
+}
+
+.status-bar {
+  background-color: silver;
+  font-size: 11px;
+    font-family: 'Pixelated MS Sans Serif';
+    color: #000;
+    padding: 0;
+}
+
+.status-bar-item {
+  white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    min-width: 0px;
+    flex-grow: 1;
+    padding: 2px;
+    height: 12px;
+    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c;
 }
