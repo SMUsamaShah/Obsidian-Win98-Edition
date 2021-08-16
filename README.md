@@ -7,5 +7,6 @@ Windows 2000 running in browser in 32bit mode for reference https://bellard.org/
 
 
 
-Current Look (WIP)
-![Obisidan Windows 98 Theme Screenshot](obsidian-win98-edition-WIP.png)
+Current Look
+![Obisidan Windows 98 Theme - Main Window](screenshots/main.png)
+![Obisidan Windows 98 Theme - Settings](screenshots/settings.png)
