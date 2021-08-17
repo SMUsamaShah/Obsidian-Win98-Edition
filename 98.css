@@ -49,8 +49,7 @@ input,
 label,
 option,
 select,
-textarea,
-ul {
+textarea {
     font-family           : "Pixelated MS Sans Serif", Arial;
     -webkit-font-smoothing: none !important;
     font-size: 11px !important;
