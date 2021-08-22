@@ -1,4 +1,4 @@
-# Obsidian-Win98-Edition
+# Obsidian Windows 98 Edition
 A windows 98 makeover theme for Obsidian out of nostalgia + spite for all zoomed in "modern" UIs.
 
 This css takes everything from https://jdan.github.io/98.css/  (demo with tabs https://98css-1ts17nxjj.vercel.app/) and some from https://packard-belle.netlify.app/  
