@@ -49,8 +49,7 @@ input,
 label,
 option,
 select,
-textarea,
-ul {
+textarea {
     font-family           : "Pixelated MS Sans Serif", Arial;
     -webkit-font-smoothing: none !important;
     font-size: 11px !important;
@@ -78,6 +77,16 @@ html {
   box-shadow: inset -1px -1px var(--border), inset 1px 1px #fff, inset -2px -2px var(--window), inset 2px 2px #fff;
   background: var(--window);
   padding: 3px;
+}
+html::after {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  height: 12px;
+  width: 12px;
+  content: "";
+  background-image: url("data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=");
+  z-index: 100;
 }
 body {
   padding-top: 20px !important;
@@ -435,6 +444,13 @@ select, .dropdown {
 .workspace-split.mod-root {
   background-color: var(--window);
 }
+.workspace-split.mod-root .view-content {
+  box-shadow: inset -1px -1px #fff, inset 1px 1px var(--titlebar_inactive_1), inset -2px -2px var(--window), inset 2px 2px var(--border);
+  padding: 2px;
+}
+.workspace-split.mod-right-split .view-content {
+  padding-left: 4px;
+}
 
 .workspace-tab-container-inner {
   position: relative;
@@ -476,6 +492,12 @@ select, .dropdown {
 .workspace-tab-header-inner {
   transition: none;
 }
+/* .workspace-split.mod-left-split .view-content, .workspace-tabs .workspace-leaf-content {
+  box-shadow: inset -1px -1px var(--border), inset 1px 1px #dfdfdf, inset -2px -2px var(--titlebar_inactive_1), inset 2px 2px #fff;
+  background: var(--window);
+  padding: 3px;
+} */
+
 .nav-header {
   box-shadow: inset -1px -1px var(--border), inset 1px 1px #dfdfdf, inset -2px -2px var(--titlebar_inactive_1), inset 2px 2px #fff;
   background: var(--window);
@@ -783,6 +805,7 @@ input[type=text] {
   color: #000;
   padding: 1px;
   border-top: 0;
+  padding-top: 3px;
 }
 
 .status-bar-item {
@@ -981,6 +1004,7 @@ input[type=checkbox], input[type=radio] {
   -webkit-font-smoothing: none;
   letter-spacing: 0;
   /* line-height: 1.2em; */
+  box-shadow: inset -1px -1px #fff, inset 1px 1px var(--titlebar_inactive_1), inset -2px -2px var(--window), inset 2px 2px var(--border);
 }
 .tree-item-self {
   display: flex;
