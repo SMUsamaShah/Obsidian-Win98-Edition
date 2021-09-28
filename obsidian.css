@@ -915,7 +915,7 @@ input[type=text] {
   border: 0;
   border-radius: 0;
 }
-input[type=checkbox], input[type=radio] {
+.mod-settings input[type=checkbox], .mod-settings input[type=radio] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
