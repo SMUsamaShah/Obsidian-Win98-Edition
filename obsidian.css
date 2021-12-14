@@ -263,6 +263,10 @@ select, .dropdown {
   text-align: initial;
 }
 
+.mod-macos .titlebar-text {
+    margin-left: 75px;
+}
+
 .titlebar-inner {
   align-items: center;
   
