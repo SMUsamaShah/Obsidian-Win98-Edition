@@ -31,13 +31,22 @@
 
 /*windows 2000 https://bellard.org/jslinux/vm.html?url=win2k.cfg&mem=192&graphic=1&w=1024&h=768*/
 :root {
-  --window: #d4d0c8;
+
+  
+}
+
+body {
+  --header-height: 32px;
+  --scrollbar-border-width: 0px 0px 0px 0px;
+  --scrollbar-thumb-bg: #c0c0c0;
+  
+  --border: #000;
+  --window: #c2c6ca;
   --tooltip: rgb(255, 255, 225);
-  --titlebar_active_1: #0a246a;
-  --titlebar_active_2: #a6caf0;
-  --titlebar_inactive_1: #808080;
-  --titlebar_inactive_2: #c0c0c0;
-  --border: #404040;
+  --titlebar_active_1: #0000aa;
+  --titlebar_active_2: #0000aa;
+  --titlebar_inactive_1: #85898d;
+  --titlebar_inactive_2: #85898d;
 }
 
 svg {
@@ -315,7 +324,6 @@ select, .dropdown {
 }
 
 .titlebar-button.mod-close, .view-action.mod-close-leaf {
-  margin-left: 2px;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H5v1h1v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1V5h1V4h1V3H2V2H1V1H0V0z' fill='%23000'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: top 3px left 4px;
@@ -653,7 +661,8 @@ select, .dropdown {
 .menu-item{
   user-select: none;
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   padding: 0px 20px 0px 5px;
   text-align: left;
@@ -799,7 +808,25 @@ input[type=text] {
 }
 .menu-item-icon {
   color: #000;
+  display: flex;
+  flex: 0 0 16px;
+  width: 16px;
   height: 14px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4px;
+}
+
+.menu-item-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-item.selected .menu-item-icon {
+  color: #fff;
 }
 
 .status-bar {
@@ -1055,4 +1082,267 @@ input[type=text] {
   width: 700px;
   max-width: 80vw;
   max-height: 70vh;
+}
+
+/* Windows 98 consistency fixes */
+.workspace-tab-header,
+.workspace-tab-header-inner {
+  border-top-left-radius: 3px !important;
+  border-top-right-radius: 3px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.workspace-tab-header-new-tab,
+.workspace-tab-header-container-before,
+.workspace-tab-header-container-after {
+  border-radius: 0 !important;
+}
+
+.workspace-tab-header {
+  box-sizing: border-box;
+  min-height: 24px;
+  height: 24px;
+  padding: 0 !important;
+  color: #222 !important;
+  background: transparent !important;
+  box-shadow: inset -1px 0 #000, inset 1px 1px #dfdfdf, inset -2px 0 var(--titlebar_inactive_1), inset 2px 2px #fff !important;
+}
+
+.workspace-tab-header.is-active {
+  min-height: 26px;
+  height: 26px;
+  margin-top: -2px;
+  margin-left: -3px;
+  padding: 0 0 2px !important;
+  background: var(--window) !important;
+  box-shadow: inset -1px 0 #000, inset 1px 1px #dfdfdf, inset -2px 0 var(--titlebar_inactive_1), inset 2px 2px #fff !important;
+  position: relative;
+  z-index: 8;
+}
+
+.workspace-tab-header-inner {
+  min-height: 24px;
+  height: 24px;
+  line-height: 24px;
+}
+
+.workspace-tab-header-container-inner {
+  padding: 1px 0 0 3px !important;
+}
+
+.workspace-tab-header-inner-title {
+  font-family: "Pixelated MS Sans Serif", Arial;
+  font-size: 11px;
+  line-height: 24px;
+  color: #222 !important;
+}
+
+.workspace-tab-header::before,
+.workspace-tab-header::after,
+.workspace-tab-header-inner::after {
+  content: none !important;
+  display: none !important;
+  box-shadow: none !important;
+}
+
+.workspace-tab-header-inner-close-button {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border-radius: 0 !important;
+}
+
+.workspace-tab-header-new-tab {
+  width: 23px;
+  height: 23px;
+  padding: 0;
+  margin: 6px 12px 0 9px !important;
+  flex: 0 0 23px;
+  align-self: flex-start;
+  background: var(--window);
+  box-shadow: inset -1px -1px #000, inset 1px 1px #fff, inset -2px -2px var(--titlebar_inactive_1), inset 2px 2px var(--window);
+}
+
+.view-header-nav-buttons .clickable-icon,
+.view-header-nav-buttons .clickable-icon:hover,
+.view-header-nav-buttons .clickable-icon:focus-visible,
+.view-header-nav-buttons .clickable-icon:active {
+  background: var(--window) !important;
+  color: #000 !important;
+  opacity: 1 !important;
+  border: 0;
+  border-radius: 0 !important;
+  box-shadow: inset -1px -1px #000, inset 1px 1px #fff, inset -2px -2px var(--titlebar_inactive_1), inset 2px 2px var(--window);
+}
+
+.view-header-nav-buttons .clickable-icon svg {
+  color: #000 !important;
+}
+
+.workspace-split.mod-right-split .workspace-tabs.mod-top-right-space > .workspace-tab-header-container {
+  padding-right: 62px !important;
+}
+
+.document-search-input.search-input-container::before {
+  left: 4px !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 16px !important;
+  height: 16px !important;
+  transform: translateY(-50%) !important;
+}
+
+.document-search-input input {
+  padding-left: 24px !important;
+}
+
+.document-search-buttons {
+  align-items: center;
+  gap: 4px;
+}
+
+.document-search-button,
+.document-search-close-button {
+  box-sizing: border-box;
+  flex: 0 0 24px;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.mod-settings .vertical-tab-content button {
+  appearance: none;
+  min-width: 75px;
+  min-height: 23px;
+  height: 23px;
+  padding: 0 12px !important;
+  border: 0;
+  border-radius: 0 !important;
+  background: var(--window) !important;
+  color: #000 !important;
+  box-shadow: inset -1px -1px #000, inset 1px 1px #fff, inset -2px -2px var(--titlebar_inactive_1), inset 2px 2px var(--window) !important;
+}
+
+.mod-settings .vertical-tab-content button:not(:disabled):active {
+  padding: 1px 11px 0 13px !important;
+  box-shadow: inset -1px -1px #fff, inset 1px 1px #000, inset -2px -2px #dfdfdf, inset 2px 2px var(--titlebar_inactive_1) !important;
+}
+
+.mod-settings .checkbox-container {
+  width: 13px !important;
+  height: 13px !important;
+  flex: 0 0 13px;
+  align-self: center;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.mod-settings .checkbox-container::before {
+  top: 0;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  border-radius: 0 !important;
+}
+
+.mod-settings .checkbox-container::after {
+  top: 3px;
+  left: 3px;
+  border-radius: 0 !important;
+}
+
+.mod-settings .setting-group,
+.mod-settings .setting-group::before,
+.mod-settings .setting-group::after,
+.mod-settings .setting-items,
+.mod-settings .setting-item,
+.mod-settings .vertical-tab-nav-item,
+.mod-settings .vertical-tab-nav-item-icon {
+  border-radius: 0 !important;
+}
+
+.mod-settings .setting-items {
+  background: var(--window) !important;
+}
+
+.mod-settings .checkbox-container.is-enabled::after {
+  width: 7px !important;
+  height: 7px !important;
+  top: 3px !important;
+  left: 3px !important;
+  transform: none !important;
+}
+
+.workspace-tab-container:has(.workspace-tab-header.is-active) .view-header {
+  background: linear-gradient(90deg, var(--titlebar_active_1), var(--titlebar_active_2));
+}
+
+.workspace-tab-container:has(.workspace-tab-header.is-active) .view-header-title,
+.workspace-tab-container:has(.workspace-tab-header.is-active) .view-header-breadcrumb,
+.workspace-tab-container:has(.workspace-tab-header.is-active) .view-header-breadcrumb-separator {
+  color: #fff !important;
+}
+
+.view-header-breadcrumb {
+  border-radius: 0 !important;
+}
+
+.titlebar-button {
+  width: 16px !important;
+  min-width: 16px !important;
+  max-width: 16px !important;
+  height: 14px !important;
+  min-height: 14px !important;
+  padding: 0 !important;
+  flex: 0 0 16px;
+}
+
+.sidebar-toggle-button,
+.sidebar-toggle-button .clickable-icon,
+.workspace-ribbon .side-dock-ribbon-action {
+  background: var(--window);
+  color: #000;
+  border-radius: 0 !important;
+}
+
+.status-bar,
+.status-bar-item {
+  border-radius: 0 !important;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar:vertical {
+  width: 16px !important;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 16px !important;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-button {
+  border-radius: 0 !important;
+}
+
+::-webkit-scrollbar-button {
+  width: 16px !important;
+  height: 16px !important;
+  background-color: var(--window);
+}
+
+.workspace-tabs.mod-top-right-space .view-header {
+  background: linear-gradient(90deg, var(--titlebar_active_1), var(--titlebar_active_2));
+}
+
+.workspace-tabs.mod-top-right-space .view-header-title,
+.workspace-tabs.mod-top-right-space .view-header-breadcrumb,
+.workspace-tabs.mod-top-right-space .view-header-breadcrumb-separator {
+  color: #fff !important;
 }
